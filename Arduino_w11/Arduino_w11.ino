@@ -21,22 +21,22 @@ void sevenSegWrite(byte digit) {
     digitalWrite(pin, seven_seg_digits[digit][seg]);
     pin++;
   }
-}//控制七段顯示器內容顯示
+} //控制七段顯示器內容顯示
 
 void setup() {
     Serial.begin(9600);
     
     for (int thisLed = 2; thisLed < 9; thisLed++) {
       pinMode(thisLed, OUTPUT); 
-    }//設定2~8腳位為輸出
+    } //設定2~8腳位為輸出
     
-    pinMode(buttonPin, INPUT);//設定9腳位為輸入
+    pinMode(buttonPin, INPUT); //設定9腳位為輸入
 
-    sevenSegWrite(num);//設定七段顯示器起始值
+    sevenSegWrite(num); //設定七段顯示器起始值
 }
 
 void loop() {
-    int buttonstate=digitalRead(buttonPin);//偵測按鈕訊號
+    int buttonstate=digitalRead(buttonPin); //偵測按鈕訊號
     
     if(buttonstate==HIGH && oldbtn==0){ //確認輸入訊號是從低位到高位
       Serial.println(num);
